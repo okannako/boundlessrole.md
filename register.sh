@@ -37,6 +37,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 cargo install --locked boundless-cli
+
+echo -e "\e[1m\e[32m Env Dosyası Oluşturuluyor. \e[0m"  && sleep 2
+
 cat <<EOF >> .env.base
 # Base contract addresses
 export VERIFIER_ADDRESS=0x0b144e07a0826182b6b59788c34b32bfa86fb711
@@ -50,4 +53,4 @@ export PRIVATE_KEY="$PRIVKEY"
 EOF
 source .env.base
 
-echo -e "\e[1m\e[32m Yükleme İşlemleri Tamamlandı. Kılavuz Üzerindeki Diğer Adımlara Geçebilirsiniz. \e[0m"  && sleep 2
+echo -e "\e[1m\e[32m Yükleme işlemleri tamamlandı. Kılavuz üzerindeki diğer adımlara geçebilirsiniz. \e[0m"  && sleep 2
