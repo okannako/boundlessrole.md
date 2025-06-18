@@ -16,11 +16,13 @@
 - Son olarak bu onaylamaları yapacağımız cüzdanı [Guild](https://guild.xyz/boundless-xyz)'de bağlamalıyız.
 
 ## Kurulum
-1️⃣ Öncelikle aşağıdaki kodları satır satır çalıştırarak kuruluma başlıyoruz. Bütün güncellemeleri kendisi yapacak ancak yukarıda belirttiğim sizin kendinize göre almanız gereken 2 değeri girmenizi isteyecek RPC ve Cüzdan Private Key, bunları girdikten sonra yükleme devam edecek. Bittikten sonra diğer adımlara geçebilirsiniz.
+1️⃣ Öncelikle aşağıdaki kodları satır satır çalıştırarak kuruluma başlıyoruz. Bütün güncellemeleri kendisi yapacak ancak yukarıda belirttiğim sizin kendinize göre almanız gereken 2 değeri girmenizi isteyecek RPC ve Cüzdan Private Key, bunları girdikten sonra yükleme devam edecek. Bittikten sonra diğer adımlara geçebilirsiniz. İkinci kodu başlattığınızda yüklemelerde pembe ekran gelirse sadece ```Enter```'a basın devam eder.
 
 ```
 apt install tmux
 tmux new-session -t boundless
+```
+```
 wget -q -O register.sh https://raw.githubusercontent.com/okannako/boundlessrole.md/refs/heads/main/register.sh && chmod +x register.sh && sudo /bin/bash register.sh
 ```
 2️⃣ Prover Rolü için aşağıdaki kodu girin. Burada şöyle bir önemli nokta var eğer ileride node çalıştıracaksanız bu şekilde girin. Sadece rol için yapacaksanız kodda bulunan ```account deposit-stake 10``` satırındaki 10'u 1 yapın.
