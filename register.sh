@@ -19,8 +19,8 @@ echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
 echo -e "\e[1m\e[32m Gerekli Atamaları Yapın.. \e[0m"  && sleep 2
 
-read -p "Alchemy Rpc Girin: "ALCHEMYRPC
-read -p "Cüzdan Private Key Girin: "PRIVKEY
+read -p "Alchemy Rpc Girin: " ALCHEMYRPC
+read -p "Cüzdan Private Key Girin: " PRIVKEY
 echo 'export ALCHEMYRPC="$ALCHEMYRPC"' >> ~/.bashrc
 echo 'export PRIVKEY="$PRIVKEY"' >> ~/.bashrc
 
