@@ -29,8 +29,8 @@ wget -q -O register.sh https://raw.githubusercontent.com/okannako/boundlessrole.
 
 ```
 boundless \
-  --rpc-url "$ALCHEMYRPC" \
-  --private-key "$PRIVKEY" \
+  --rpc-url "$ETH_RPC_URL" \
+  --private-key "$PRIVATE_KEY" \
   --boundless-market-address 0x26759dbB201aFbA361Bec78E097Aa3942B0b4AB8 \
   --set-verifier-address 0x8C5a8b5cC272Fe2b74D18843CF9C3aCBc952a760 \
   --verifier-router-address 0x0b144e07a0826182b6b59788c34b32bfa86fb711 \
