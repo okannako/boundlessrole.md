@@ -21,7 +21,7 @@
 ```
 apt install tmux
 tmux new-session -t boundless
-wget -q -O register.sh https://raw.githubusercontent.com/okannako/boundlessrole.md/refs/heads/main/register.sh && chmod +x regsiter.sh && sudo /bin/bash regsiter.sh
+wget -q -O register.sh https://raw.githubusercontent.com/okannako/boundlessrole.md/refs/heads/main/register.sh && chmod +x register.sh && sudo /bin/bash register.sh
 ```
 1️⃣Prover Rolü için aşağıdaki kodu girin.
 
