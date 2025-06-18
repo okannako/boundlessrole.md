@@ -20,20 +20,20 @@ echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo -e "\e[1m\e[32m Gerekli Atamaları Yapın.. \e[0m"  && sleep 2
 
 read -p "Alchemy Rpc Girin: " ALCHEMYRPC
+export ALCHEMYRPC
 echo "export ALCHEMYRPC=\"$ALCHEMYRPC\"" >> ~/.bashrc
-source ~/.bashrc
+
 while true; do
   read -s -p "Cüzdan Private Key Girin: " PRIVKEY
   echo
   if [[ -z "$PRIVKEY" ]]; then
     echo -e "\e[1m\e[31mHata: Private key boş olamaz. Lütfen tekrar girin.\e[0m"
   else
+    export PRIVKEY
+    echo "export PRIVKEY=\"$PRIVKEY\"" >> ~/.bashrc
     break
   fi
 done
-
-echo "export PRIVKEY=\"$PRIVKEY\"" >> ~/.bashrc
-source ~/.bashrc
 
 echo -e "\e[1m\e[32m Güncellemeler ve Bütün Gereksinimler Yükleniyor. Bitene kadar Bekleyin.. \e[0m"  && sleep 2
 
@@ -64,8 +64,8 @@ export SET_VERIFIER_ADDRESS=0x8C5a8b5cC272Fe2b74D18843CF9C3aCBc952a760
 
 # Public order stream URL
 export ORDER_STREAM_URL="https://base-mainnet.beboundless.xyz"
-export ETH_RPC_URL="\$ALCHEMYRPC"
-export PRIVATE_KEY="\$PRIVKEY"
+export ETH_RPC_URL="$ALCHEMYRPC"
+export PRIVATE_KEY="$PRIVKEY"
 EOF
 
 source .env.base
