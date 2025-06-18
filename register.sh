@@ -22,10 +22,15 @@ echo -e "\e[1m\e[32m Gerekli Atamaları Yapın.. \e[0m"  && sleep 2
 read -p "Alchemy Rpc Girin: " ALCHEMYRPC
 read -s -p "Cüzdan Private Key Girin: " PRIVKEY
 echo
-if [[ -z "$PRIVKEY" ]]; then
-  echo -e "\e[1m\e[31mHata: Private key boş bırakılamaz.\e[0m"
-  exit 1
-fi
+while true; do
+  read -s -p "Cüzdan Private Key Girin: " PRIVKEY
+  echo
+  if [[ -z "$PRIVKEY" ]]; then
+    echo -e "\e[1m\e[31mHata: Private key boş olamaz. Lütfen tekrar girin.\e[0m"
+  else
+    break
+  fi
+done
 
 ENV_FILE="$HOME/.boundless_env"
 cat <<EOF > "$ENV_FILE"
