@@ -38,21 +38,22 @@ done
 echo -e "\e[1m\e[32m Güncellemeler ve Bütün Gereksinimler Yükleniyor. Bitene kadar Bekleyin.. \e[0m"  && sleep 2
 
 sudo apt update && sudo apt install -y make gcc pkg-config libssl-dev ocl-icd-opencl-dev nano tmux ocl-icd-libopencl1 libleveldb-dev protobuf-compiler libopencl-clang-dev libgomp1 curl git tar wget build-essential jq && sudo apt install wget -y && cd $HOME
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-source $HOME/.cargo/env
 
 git clone https://github.com/boundless-xyz/boundless
-cd boundless
+cd boundless && sleep 1
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source $HOME/.cargo/env && sleep 1
 
 curl -L https://risczero.com/install | bash
 source ~/.bashrc
-rzup install
+rzup install && sleep 1
 
 cargo install --git https://github.com/risc0/risc0 bento-client --bin bento_cli
 export PATH="$HOME/.cargo/bin:$PATH"
 echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
-cargo install --locked boundless-cli
+cargo install --locked boundless-cli && sleep 1
 
 echo -e "\e[1m\e[32m Env Dosyası Oluşturuluyor. \e[0m"  && sleep 2
 
