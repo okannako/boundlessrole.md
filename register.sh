@@ -73,5 +73,6 @@ export PRIVATE_KEY="\$PRIVKEY"
 EOF
 
 source .env.base
+source ~/.bashrc
 
 echo -e "\e[1m\e[32m Yükleme işlemleri tamamlandı. Kılavuz üzerindeki diğer adımlara geçebilirsiniz. \e[0m"  && sleep 2
