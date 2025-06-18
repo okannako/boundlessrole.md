@@ -10,20 +10,20 @@
 
 ## İhtiyacımız Olanlar
 - Node kurmayacağımız için düşük özellikte bir sistemde işlemleri yapabilirsiniz. Mesela 1 CPU olan bir makinada denerseniz işlemler çok uzun sürebilir ama yine de yapar.
-- Bu işlem Base Mainnet üzerinde olacak ve cüzdanda 2-3 dolarlık bir Eth ve 10 USDC olmalı. Hata olmaması adına ben 10.1 yaptım. Cüzdanınız normalde kullandığınız bir cüzdan olmasın, test işlemi ne olacağı belli olmaz, sıfır bir EVM cüzdanı açın.
+- Bu işlem Base Mainnet üzerinde olacak ve cüzdanda 2-3 dolarlık bir Eth ve eğer ileride node da çalıştıracaksanız 10 USDC olmalı sadece rol için yapıyorsanız 1 USDC yeterli. Hata olmaması adına ben 10.1 yaptım. Cüzdanınız normalde kullandığınız bir cüzdan olmasın, test işlemi ne olacağı belli olmaz, sıfır bir EVM cüzdanı açın.
 - Discord ve Github hesabı olmalı ancak bunlar en az 6 aydan eski olması gerekiyor.
 - [Alchemy](https://www.alchemy.com/) üzerinden ücretsiz bir şekilde alacağınız Base Mainnet Rpc gerekiyor.
 - Son olarak bu onaylamaları yapacağımız cüzdanı [Guild](https://guild.xyz/boundless-xyz)'de bağlamalıyız.
 
 ## Kurulum
-1️⃣Öncelikle aşağıdaki kodları satır satır çalıştırarak kuruluma başlıyoruz. Bütün güncellemeleri kendisi yapacak ancak yukarıda belirttiğim sizin kendinize göre almanız gereken 2 değeri girmenizi isteyecek RPC ve Cüzdan Private Key, bunları girdikten sonra yükleme devam edecek. Bittikten sonra diğer adımlara geçebilirsiniz.
+1️⃣ Öncelikle aşağıdaki kodları satır satır çalıştırarak kuruluma başlıyoruz. Bütün güncellemeleri kendisi yapacak ancak yukarıda belirttiğim sizin kendinize göre almanız gereken 2 değeri girmenizi isteyecek RPC ve Cüzdan Private Key, bunları girdikten sonra yükleme devam edecek. Bittikten sonra diğer adımlara geçebilirsiniz.
 
 ```
 apt install tmux
 tmux new-session -t boundless
 wget -q -O register.sh https://raw.githubusercontent.com/okannako/boundlessrole.md/refs/heads/main/register.sh && chmod +x register.sh && sudo /bin/bash register.sh
 ```
-1️⃣Prover Rolü için aşağıdaki kodu girin.
+2️⃣ Prover Rolü için aşağıdaki kodu girin. Burada şöyle bir önemli nokta var eğer ileride node çalıştıracaksanız bu şekilde girin. Sadece rol için yapacaksanız kodda bulunan ```account deposit-stake 10``` satırındaki 10'u 1 yapın.
 
 ```
 boundless \
