@@ -20,8 +20,6 @@ echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo -e "\e[1m\e[32m Gerekli Atamaları Yapın.. \e[0m"  && sleep 2
 
 read -p "Alchemy Rpc Girin: " ALCHEMYRPC
-read -s -p "Cüzdan Private Key Girin: " PRIVKEY
-echo
 while true; do
   read -s -p "Cüzdan Private Key Girin: " PRIVKEY
   echo
