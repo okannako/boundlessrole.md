@@ -37,27 +37,45 @@ done
 
 echo -e "\e[1m\e[32m Güncellemeler ve Bütün Gereksinimler Yükleniyor. Bitene kadar Bekleyin.. \e[0m"  && sleep 2
 
-sudo apt update && sudo apt install -y make gcc pkg-config libssl-dev ocl-icd-opencl-dev nano tmux ocl-icd-libopencl1 libleveldb-dev protobuf-compiler libopencl-clang-dev libgomp1 curl git tar wget build-essential jq && sudo apt install wget -y && cd $HOME
+sudo apt update && sudo apt install -y make gcc pkg-config libssl-dev ocl-icd-opencl-dev nano tmux ocl-icd-libopencl1 libleveldb-dev protobuf-compiler libopencl-clang-dev libgomp1 curl git tar wget build-essential jq && sudo apt install wget -y
 
-git clone https://github.com/boundless-xyz/boundless
-cd boundless && sleep 1
+cd /root || { echo "Root dizinine girilemedi!"; exit 1; }
+echo "Root dizininde, şu an: $(pwd)"
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-source $HOME/.cargo/env && sleep 1
+if [ ! -d "boundless" ]; then
+  echo "Boundless klasörü yok, klonlanıyor..."
+  git clone https://github.com/boundless-xyz/boundless || { echo "Klonlama başarısız oldu"; exit 1; }
+else
+  echo "Boundless var, güncelleniyor..."
+  pushd boundless || { echo "boundless klasörüne girilemedi"; exit 1; }
+  git pull || { echo "Güncelleme başarısız"; popd; exit 1; }
+  popd
+fi
 
-curl -L https://risczero.com/install | bash
-source ~/.bashrc
-rzup install && sleep 1
+pushd boundless || { echo "boundless klasörüne girilemedi"; exit 1; }
 
-cargo install --git https://github.com/risc0/risc0 bento-client --bin bento_cli
-export PATH="$HOME/.cargo/bin:$PATH"
-echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
-cargo install --locked boundless-cli && sleep 1
+# Alt kabukta çalıştırıyoruz ki dizin değişmesin
+(
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && sleep 2
+  source $HOME/.cargo/env && sleep 1
+
+  curl -L https://risczero.com/install | bash && sleep 2
+  source ~/.bashrc
+  export PATH="$HOME/.risc0/bin:$PATH"
+  rzup install
+
+  cargo install --git https://github.com/risc0/risc0 bento-client --bin bento_cli && sleep 2
+  export PATH="$HOME/.cargo/bin:$PATH"
+  echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
+  source ~/.bashrc
+  cargo install --locked boundless-cli && sleep 1
+)
+
+echo "Alt kabuk işlemleri sonrası dizin: $(pwd)"  # Burada hala boundless dizinindeyiz
 
 echo -e "\e[1m\e[32m Env Dosyası Oluşturuluyor. \e[0m"  && sleep 2
 
-cat <<EOF >> .env.base
+cat <<EOF > .env.base
 # Base contract addresses
 export VERIFIER_ADDRESS=0x0b144e07a0826182b6b59788c34b32bfa86fb711
 export BOUNDLESS_MARKET_ADDRESS=0x26759dbB201aFbA361Bec78E097Aa3942B0b4AB8
@@ -70,5 +88,8 @@ export PRIVATE_KEY="$PRIVKEY"
 EOF
 
 source .env.base
+echo "Script sonundaki dizin: $(pwd)"
+
+popd  # boundless dizininden çıkıldı
 
 echo -e "\e[1m\e[32m Yükleme işlemleri tamamlandı. Kılavuz üzerindeki diğer adımlara geçebilirsiniz. \e[0m"  && sleep 2
