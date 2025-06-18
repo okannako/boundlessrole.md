@@ -21,11 +21,18 @@ echo -e "\e[1m\e[32m Gerekli Atamaları Yapın.. \e[0m"  && sleep 2
 
 read -p "Alchemy Rpc Girin: " ALCHEMYRPC
 read -s -p "Cüzdan Private Key Girin: " PRIVKEY
+echo
+if [[ -z "$PRIVKEY" ]]; then
+  echo -e "\e[1m\e[31mHata: Private key boş bırakılamaz.\e[0m"
+  exit 1
+fi
+
 ENV_FILE="$HOME/.boundless_env"
 cat <<EOF > "$ENV_FILE"
 export ALCHEMYRPC="$ALCHEMYRPC"
 export PRIVKEY="$PRIVKEY"
 EOF
+
 grep -qxF "source $ENV_FILE" ~/.bashrc || echo "source $ENV_FILE" >> ~/.bashrc
 source "$ENV_FILE"
 
@@ -34,11 +41,14 @@ echo -e "\e[1m\e[32m Güncellemeler ve Bütün Gereksinimler Yükleniyor. Bitene
 sudo apt update && sudo apt install -y make gcc pkg-config libssl-dev ocl-icd-opencl-dev nano tmux ocl-icd-libopencl1 libleveldb-dev protobuf-compiler libopencl-clang-dev libgomp1 curl git tar wget build-essential jq && sudo apt install wget -y && cd $HOME
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source $HOME/.cargo/env
+
 git clone https://github.com/boundless-xyz/boundless
 cd boundless
+
 curl -L https://risczero.com/install | bash
 source ~/.bashrc
 rzup install
+
 cargo install --git https://github.com/risc0/risc0 bento-client --bin bento_cli
 export PATH="$HOME/.cargo/bin:$PATH"
 echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
