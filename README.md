@@ -10,7 +10,7 @@
 
 ## İhtiyacımız Olanlar
 - Node kurmayacağımız için düşük özellikte bir sistemde işlemleri yapabilirsiniz. Mesela 1 CPU olan bir makinada denerseniz işlemler çok uzun sürebilir ama yine de yapar.
-- Bu işlem Base Mainnet üzerinde olacak ve cüzdanda 2-3 dolarlık bir Eth ve 10 USDC olmalı. Hata olmaması adına ben 10.1 yaptım.
+- Bu işlem Base Mainnet üzerinde olacak ve cüzdanda 2-3 dolarlık bir Eth ve 10 USDC olmalı. Hata olmaması adına ben 10.1 yaptım. Cüzdanınız normalde kullandığınız bir cüzdan olmasın, test işlemi ne olacağı belli olmaz, sıfır bir EVM cüzdanı açın.
 - Discord ve Github hesabı olmalı ancak bunlar en az 6 aydan eski olması gerekiyor.
 - Alchemy üzerinden ücretsiz bir şekilde alacağınız Base Mainnet Rpc gerekiyor.
 - Son olarak bu onaylamaları yapacağımız cüzdanı [Guild](https://guild.xyz/boundless-xyz)'de bağlamalıyız.
