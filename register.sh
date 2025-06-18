@@ -17,7 +17,7 @@ sleep 5
 
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
-echo -e "\e[1m\e[32m Gerekli Atamaları Yapın.. \e[0m"  && sleep 2
+echo -e "\e[1m\e[32m Gerekli Atamaları Yapalım.. \e[0m"  && sleep 2
 
 read -p "Alchemy Rpc Girin: " ALCHEMYRPC
 export ALCHEMYRPC
