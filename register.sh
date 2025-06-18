@@ -20,6 +20,8 @@ echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo -e "\e[1m\e[32m Gerekli Atamaları Yapın.. \e[0m"  && sleep 2
 
 read -p "Alchemy Rpc Girin: " ALCHEMYRPC
+echo "export ALCHEMYRPC=\"$ALCHEMYRPC\"" >> ~/.bashrc
+source ~/.bashrc
 while true; do
   read -s -p "Cüzdan Private Key Girin: " PRIVKEY
   echo
@@ -30,14 +32,8 @@ while true; do
   fi
 done
 
-ENV_FILE="$HOME/.boundless_env"
-cat <<EOF > "$ENV_FILE"
-export ALCHEMYRPC="$ALCHEMYRPC"
-export PRIVKEY="$PRIVKEY"
-EOF
-
-grep -qxF "source $ENV_FILE" ~/.bashrc || echo "source $ENV_FILE" >> ~/.bashrc
-source "$ENV_FILE"
+echo "export PRIVKEY=\"$PRIVKEY\"" >> ~/.bashrc
+source ~/.bashrc
 
 echo -e "\e[1m\e[32m Güncellemeler ve Bütün Gereksinimler Yükleniyor. Bitene kadar Bekleyin.. \e[0m"  && sleep 2
 
@@ -73,6 +69,5 @@ export PRIVATE_KEY="\$PRIVKEY"
 EOF
 
 source .env.base
-source ~/.bashrc
 
 echo -e "\e[1m\e[32m Yükleme işlemleri tamamlandı. Kılavuz üzerindeki diğer adımlara geçebilirsiniz. \e[0m"  && sleep 2
