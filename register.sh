@@ -19,8 +19,8 @@ echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
 echo -e "\e[1m\e[32m Gerekli Atamaları Yapın.. \e[0m"  && sleep 2
 
-read -p "Alchemy Rpc Girin: " ALCHEMYRPC
-read -p "Cüzdan Private Key Girİn: " PRIVKEY
+read -p "Alchemy Rpc Girin: "ALCHEMYRPC
+read -p "Cüzdan Private Key Girin: "PRIVKEY
 
 echo -e "\e[1m\e[32m Güncellemeler ve Bütün Gereksinimler Yükleniyor. Bitene kadar Bekleyin.. \e[0m"  && sleep 2
 
