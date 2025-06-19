@@ -56,7 +56,7 @@ boundless \
  - Eğer işlem başarılı olursa çıktısı aşağıdaki gibi olur.
 ![1ethhh](https://github.com/user-attachments/assets/7ee3f480-647e-4285-88cb-d5fd35325bc5)
 
-##Hatalar
+## Hatalar
 - boundless hatası için alttaki kodları kullanın.
 ```
 source ~/.bashrc
