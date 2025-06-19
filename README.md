@@ -56,6 +56,18 @@ boundless \
  - Eğer işlem başarılı olursa çıktısı aşağıdaki gibi olur.
 ![1ethhh](https://github.com/user-attachments/assets/7ee3f480-647e-4285-88cb-d5fd35325bc5)
 
+##Hatalar
+- boundless hatası için alttaki kodları kullanın.
+```
+source ~/.bashrc
+```
+
+- RPC hatası için alttaki kodları kullanın.
+```
+cd boundless
+source .env.base
+```
+
 ## Discord Rolünü Almak
 - [Guild](https://guild.xyz/boundless-xyz) adresine giriyoruz ve işlemleri yaptığımız cüzdanı Guild hesabına Discord ve Github hesabımızla birlikte bağlıyoruz ve Join Guild'e tıklıyoruz. Eğer bunlar zaten yapıldıysa sadece yeni cüzdanı bağlamak ve ekrandki gibi onayları aldıktan sonra Discord'dan kontrol etmek yeterli.
 
